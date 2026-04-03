@@ -271,7 +271,7 @@ export default function App() {
               <SectionCard title="Quick Actions">
                 <div className="quick-actions">
                   <button className="action-btn" onClick={() => go('variation')}>
-                    <FileWarning size={16} /> <FileWarning size={16} /> Issue Variation Claim <ArrowUpRight size={14} /> <ArrowUpRight size={14} />
+                <FileWarning size={16} /> Issue Variation Claim <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('rfi')}>
                     <MessageSquareWarning size={16} /> Raise Commercial RFI <ArrowUpRight size={14} />
