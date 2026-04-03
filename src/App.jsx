@@ -270,7 +270,17 @@ export default function App() {
 
               <SectionCard title="Quick Actions">
                 <div className="quick-actions">
-                  <button className="action-btn" onClick={() => go('variation')}>
+                  273 <button
+274   className="action-btn"
+275   onClick={() => {
+276     setVariationDraft({
+277       project: project.name,
+278       amount: project.unissuedVO,
+279       reason: 'Unissued variation older than 14 days'
+280     })
+281     go('variation')
+282   }}
+>
                 <FileWarning size={16} /> 
 Issue Variation Claim (${Math.round(project.unissuedVO / 1000)}K at risk)
                   </button>
@@ -313,7 +323,11 @@ Review Cashflow Exposure ({currency(netCashGap)} gap)
               <input className="field" placeholder="Original scope" />
               <input className="field" placeholder="Changed scope" />
               <input className="field" placeholder="Cause of change" />
-              <input className="field" placeholder="Estimated cost impact" />
+             313 <input
+314   className="field"
+315   placeholder="Estimated cost impact"
+316   defaultValue={variationDraft?.amount}
+/>
             </div>
             <div className="summary-box">
               <strong>Generated outcome</strong>
