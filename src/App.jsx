@@ -193,10 +193,10 @@ export default function App() {
           <div>
             <div className="eyebrow">Signature dashboard</div>
             <h1>The screen that sells the platform instantly</h1>
-            <p>
-              Synctask is not just project software. It shows where money is leaking,
-              what needs issuing now, and which action should happen next.
-            </p>
+<p>
+  Synctask is not just project software. It shows where money is leaking,
+  what needs issuing now, and which action should happen next.
+</p>
           </div>
           {screen !== 'dashboard' && (
             <button className="ghost-btn" onClick={() => go('dashboard')}>
