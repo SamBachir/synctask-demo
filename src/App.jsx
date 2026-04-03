@@ -272,8 +272,7 @@ export default function App() {
                 <div className="quick-actions">
                   <button className="action-btn" onClick={() => go('variation')}>
                 <FileWarning size={16} /> 
-Issue Variation Claim ({currency(project.unissuedVO)} at risk) 
-<ArrowUpRight size={14} />
+Issue Variation Claim (${Math.round(project.unissuedVO / 1000)}K at risk)
                   </button>
                   <button className="action-btn" onClick={() => go('rfi')}>
                     <MessageSquareWarning size={16} /> Raise Commercial RFI (2 overdue) <ArrowUpRight size={14} />
