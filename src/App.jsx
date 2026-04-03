@@ -192,10 +192,8 @@ export default function App() {
         <header className="hero">
           <div>
             <div className="eyebrow">Signature dashboard</div>
+           <h1>Know where profit is leaking before the job bites back</h1>
             <p>
-  Synctask gives trade contractors one control centre for variations, RFIs, cashflow risk, and weekly reporting.
-</p>
- <p>
   Synctask gives trade contractors one control centre for variations, RFIs, cashflow risk, and weekly reporting.
 </p>
           </div>
