@@ -277,7 +277,8 @@ export default function App() {
                     <MessageSquareWarning size={16} /> Raise Commercial RFI (2 overdue) <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('commercial')}>
-                    <Wallet size={16} /> Review Cashflow Exposure ($610k gap) <ArrowUpRight size={14} />
+                    <Wallet size={16} /> Review Cashflow Exposure ($610k gap → $610k gap)  ❌ (lowercase k)
+($610K gap)             ✅ (capital K) ($610k gap) <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('weekly')}>
                     <ClipboardList size={16} /> Generate Builder Report <ArrowUpRight size={14} />
