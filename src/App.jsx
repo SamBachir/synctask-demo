@@ -275,7 +275,7 @@ export default function App() {
 Issue Variation Claim (${Math.round(project.unissuedVO / 1000)}K at risk)
                   </button>
                   <button className="action-btn" onClick={() => go('rfi')}>
-                    <MessageSquareWarning size={16} /> Raise Commercial RFI (2 overdue) <ArrowUpRight size={14} />
+                    <MessageSquareWarning size={16} /> Resolve 2 overdue RFIs <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('commercial')}>
                    <Wallet size={16} /> 
