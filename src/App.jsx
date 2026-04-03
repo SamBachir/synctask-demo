@@ -192,10 +192,10 @@ export default function App() {
         <header className="hero">
           <div>
             <div className="eyebrow">Signature dashboard</div>
-            <h1>The screen that sells the platform instantly</h1>
+            <h1>Know where profit is leaking before the job bites back</h1>
 <p>
-  Synctask is not just project software. It shows where money is leaking,
-  what needs issuing now, and which action should happen next.
+ <p>
+  Synctask gives trade contractors one control centre for variations, RFIs, cashflow risk, and weekly reporting.
 </p>
           </div>
           {screen !== 'dashboard' && (
