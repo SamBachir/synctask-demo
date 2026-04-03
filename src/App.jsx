@@ -271,16 +271,16 @@ export default function App() {
               <SectionCard title="Quick Actions">
                 <div className="quick-actions">
                   <button className="action-btn" onClick={() => go('variation')}>
-                    <FileWarning size={16} /> Generate VO <ArrowUpRight size={14} />
+                    <FileWarning size={16} /> <FileWarning size={16} /> Issue Variation Claim <ArrowUpRight size={14} /> <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('rfi')}>
-                    <MessageSquareWarning size={16} /> Create RFI <ArrowUpRight size={14} />
+                    <MessageSquareWarning size={16} /> Raise Commercial RFI <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('commercial')}>
-                    <Wallet size={16} /> Cashflow Review <ArrowUpRight size={14} />
+                    <Wallet size={16} /> Review Cashflow Exposure <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('weekly')}>
-                    <ClipboardList size={16} /> Weekly Report <ArrowUpRight size={14} />
+                    <ClipboardList size={16} /> Generate Builder Report <ArrowUpRight size={14} />
                   </button>
                 </div>
               </SectionCard>
