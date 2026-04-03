@@ -40,3 +40,9 @@ npm run build
 - This is a front-end prototype with mock data
 - No backend or database is connected yet
 - Best next step is wiring the dashboard to the Laravel backend spec
+
+
+## V2 update
+- Variation button now opens a prefilled variation screen
+- Dynamic quick action labels based on project data
+- Mock submission alert for generated claim

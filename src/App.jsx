@@ -35,22 +35,22 @@ const projects = [
       {
         id: 'ins-1',
         severity: 'critical',
-      title: '$185k is still unissued and at risk of becoming unrecoverable',
-reason: 'Three variation items remain in draft and are older than 14 days. Immediate issuance is required to protect entitlement.',
+        title: 'You have $185k in unissued variations',
+        reason: 'Three variation items are still sitting in draft and are older than 14 days.',
         action: 'variation',
       },
       {
         id: 'ins-2',
         severity: 'warning',
-       title: 'Cashflow turns negative in 3 weeks without intervention',
-reason: 'Delayed certification and upcoming procurement are creating a funding gap that will impact delivery.',
+        title: 'Cashflow will go negative in 3 weeks',
+        reason: 'Upcoming procurement and delayed certification are creating a funding gap.',
         action: 'commercial',
       },
       {
         id: 'ins-3',
         severity: 'warning',
-     title: '2 overdue RFIs are now impacting programme and recoverability',
-reason: 'Outstanding consultant responses are delaying progress and may affect variation entitlement and claim position.',
+        title: '2 RFIs are blocking site progress',
+        reason: 'Outstanding consultant responses are holding fit-off in two zones.',
         action: 'rfi',
       },
     ],
@@ -143,6 +143,7 @@ function SectionCard({ title, children, right }) {
 export default function App() {
   const [projectId, setProjectId] = useState('moxy')
   const [screen, setScreen] = useState('dashboard')
+  const [variationDraft, setVariationDraft] = useState(null)
 
   const project = useMemo(
     () => projects.find((p) => p.id === projectId) || projects[0],
@@ -192,10 +193,11 @@ export default function App() {
         <header className="hero">
           <div>
             <div className="eyebrow">Signature dashboard</div>
-           <h1>Know where profit is leaking before the job bites back</h1>
+            <h1>The screen that sells the platform instantly</h1>
             <p>
-  Synctask gives trade contractors one control centre for variations, RFIs, cashflow risk, and weekly reporting.
-</p>
+              Synctask is not just project software. It shows where money is leaking,
+              what needs issuing now, and which action should happen next.
+            </p>
           </div>
           {screen !== 'dashboard' && (
             <button className="ghost-btn" onClick={() => go('dashboard')}>
@@ -270,30 +272,28 @@ export default function App() {
 
               <SectionCard title="Quick Actions">
                 <div className="quick-actions">
-                  273 <button
-274   className="action-btn"
-275   onClick={() => {
-276     setVariationDraft({
-277       project: project.name,
-278       amount: project.unissuedVO,
-279       reason: 'Unissued variation older than 14 days'
-280     })
-281     go('variation')
-282   }}
->
-                <FileWarning size={16} /> 
-Issue Variation Claim (${Math.round(project.unissuedVO / 1000)}K at risk)
+                  <button
+                    className="action-btn"
+                    onClick={() => {
+                      setVariationDraft({
+                        project: project.name,
+                        amount: project.unissuedVO,
+                        reason: project.insights[0].reason,
+                        title: project.insights[0].title,
+                      })
+                      go('variation')
+                    }}
+                  >
+                    <FileWarning size={16} /> Issue Variation Claim (${Math.round(project.unissuedVO / 1000)}K at risk) <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('rfi')}>
-                    <MessageSquareWarning size={16} /> Resolve 2 overdue RFIs <ArrowUpRight size={14} />
+                    <MessageSquareWarning size={16} /> Resolve ${project.openRFIs} overdue RFIs <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('commercial')}>
-                   <Wallet size={16} /> 
-Review Cashflow Exposure ({currency(netCashGap)} gap) 
-<ArrowUpRight size={14} />
+                    <Wallet size={16} /> Review Cashflow Exposure (${Math.round(netCashGap / 1000)}K gap) <ArrowUpRight size={14} />
                   </button>
                   <button className="action-btn" onClick={() => go('weekly')}>
-                    <ClipboardList size={16} /> Generate Builder Report <ArrowUpRight size={14} />
+                    <ClipboardList size={16} /> Weekly Report <ArrowUpRight size={14} />
                   </button>
                 </div>
               </SectionCard>
@@ -319,25 +319,54 @@ Review Cashflow Exposure ({currency(netCashGap)} gap)
 
         {screen === 'variation' && (
           <SectionCard title="Variation Claim Builder">
+            <div className="summary-box">
+              <strong>Auto-generated variation summary</strong>
+              <p>
+                {variationDraft
+                  ? `${currency(variationDraft.amount)} remains unissued and is at risk of becoming unrecoverable. ${variationDraft.reason}`
+                  : 'No variation draft selected yet. Click the variation action from the dashboard to prefill this screen.'}
+              </p>
+            </div>
             <div className="form-grid">
-              <input className="field" placeholder="Original scope" />
-              <input className="field" placeholder="Changed scope" />
-              <input className="field" placeholder="Cause of change" />
-             313 <input
-314   className="field"
-315   placeholder="Estimated cost impact"
-316   defaultValue={variationDraft?.amount}
-/>
+              <input
+                className="field"
+                placeholder="Original scope"
+                value={variationDraft?.title || ''}
+                readOnly
+              />
+              <input
+                className="field"
+                placeholder="Changed scope"
+                value={variationDraft?.reason || ''}
+                readOnly
+              />
+              <input
+                className="field"
+                placeholder="Cause of change"
+                value={variationDraft ? 'Commercial risk identified from dashboard insight' : ''}
+                readOnly
+              />
+              <input
+                className="field"
+                placeholder="Estimated cost impact"
+                value={variationDraft ? currency(variationDraft.amount) : ''}
+                readOnly
+              />
             </div>
             <div className="summary-box">
               <strong>Generated outcome</strong>
               <p>
                 Formal VO summary, entitlement basis, time impact, approval request,
-                and linked commercial exposure entry.
+                and linked commercial exposure entry for {variationDraft?.project || 'the selected project'}.
               </p>
             </div>
             <div className="btn-row">
-              <button className="primary-btn">Generate claim</button>
+              <button
+                className="primary-btn"
+                onClick={() => alert('Variation Draft Created and Logged')}
+              >
+                Generate claim
+              </button>
               <button className="ghost-btn">Save draft</button>
             </div>
           </SectionCard>
