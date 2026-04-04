@@ -46,3 +46,10 @@ npm run build
 - Variation button now opens a prefilled variation screen
 - Dynamic quick action labels based on project data
 - Mock submission alert for generated claim
+
+
+## V3 corporate colour stream
+- Dark charcoal and graphite panels
+- Gold accent system for premium corporate feel
+- Sharper RAG styling for critical and warning cards
+- Higher contrast quick action panel and executive dashboard presentation
