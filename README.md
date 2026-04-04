@@ -53,3 +53,9 @@ npm run build
 - Gold accent system for premium corporate feel
 - Sharper RAG styling for critical and warning cards
 - Higher contrast quick action panel and executive dashboard presentation
+
+
+## V4 prefilled flows
+- Every main dashboard action now opens a prefilled screen
+- Variation, RFI, Commercial, and Weekly Report screens all carry sample project data
+- Each action includes a mock generated output so every button feels functional in demo mode
