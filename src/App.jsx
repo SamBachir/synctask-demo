@@ -260,14 +260,7 @@ export default function App() {
                     <div className="metric">{project.delayNotices}</div>
                   </div>
                 </div>
-                <div className="summary-box">
-                  <strong>AI summary</strong>
-                  <p>
-                    This project is commercially exposed by {currency(commercialAtRisk)}.
-                    Immediate focus should be variation issuance, overdue RFI resolution,
-                    and claim timing.
-                  </p>
-                </div>
+                
               </SectionCard>
 
               <SectionCard title="Quick Actions">
@@ -353,13 +346,24 @@ export default function App() {
                 readOnly
               />
             </div>
-            <div className="summary-box">
-              <strong>Generated outcome</strong>
-              <p>
-                Formal VO summary, entitlement basis, time impact, approval request,
-                and linked commercial exposure entry for {variationDraft?.project || 'the selected project'}.
-              </p>
-            </div>
+          <div className="summary-box">
+  <strong>Generated Variation Claim</strong>
+
+  <p><b>Project:</b><br />
+  {variationDraft?.project || 'Selected project'}</p>
+
+  <p><b>Scope Change:</b><br />
+  {variationDraft?.title || 'Variation scope to be confirmed'}</p>
+
+  <p><b>Cause:</b><br />
+  {variationDraft?.reason || 'Commercial risk identified from dashboard insight'}</p>
+
+  <p><b>Cost Impact:</b><br />
+  {variationDraft ? currency(variationDraft.amount) : '$0'}</p>
+
+  <p><b>Recommendation:</b><br />
+  Immediate submission is recommended to protect entitlement and prevent further commercial exposure.</p>
+</div>
             <div className="btn-row">
               <button
                 className="primary-btn"
