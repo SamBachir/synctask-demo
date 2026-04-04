@@ -46,3 +46,17 @@ npm run build
 - Variation button now opens a prefilled variation screen
 - Dynamic quick action labels based on project data
 - Mock submission alert for generated claim
+
+
+## V3 corporate colour stream
+- Dark charcoal and graphite panels
+- Gold accent system for premium corporate feel
+- Sharper RAG styling for critical and warning cards
+- Higher contrast quick action panel and executive dashboard presentation
+
+
+## V4 prefilled flows
+- Every main dashboard action now opens a prefilled screen
+- Variation, RFI, Commercial, and Weekly Report screens all carry sample project data
+- Each action includes a mock generated output so every button feels functional in demo mode
+\n\n## V5 register-driven totals\n- Dashboard totals now update from generated variation claims\n- Added Variation Register screen\n- Typography shifted away from gold emphasis to a cleaner Aptos-style light presentation\n
